@@ -48,7 +48,7 @@ public class Search {
             pos += step;
         }
 
-        if(pos > a.length - 1)
+        if(pos - 1 > 0 && x > a[pos - 1])
             return -1;
 
         for (int i = prev; i <= pos; i++) {
@@ -68,8 +68,9 @@ public class Search {
             pos += step;
         }
 
-        if(pos > a.length - 1)
+        if(pos - 1 > 0 && x > a[pos - 1])
             return -1;
+
 
         return binarySearch(a, x, prev, pos);
     }
