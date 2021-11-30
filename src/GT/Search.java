@@ -59,11 +59,26 @@ public class Search {
         return -1;
     }
 
+    public static int exponentialSearch(int[] a, int x) {
+        int step = (int) Math.sqrt(a.length);
+        int pos = 0;
+        int prev = 0;
+        while (pos < a.length && x > a[pos]) {
+            prev = pos;
+            pos += step;
+        }
+
+        if(pos > a.length - 1)
+            return -1;
+
+        return binarySearch(a, x, prev, pos);
+    }
+
     public static void main(String[] args) {
         int[] a = {0, 1, 1, 2, 3, 5, 8, 13, 21,
                 34, 55, 89, 144, 233, 377, 610} ;
 //        int r = ternarySearch(a, 7, 0, a.length - 1);
-        int r = jumpSearch(a, 0);
+        int r = exponentialSearch(a, 999);
         System.out.println(r);
     }
 }
