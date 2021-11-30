@@ -25,7 +25,7 @@ public class Search {
         int partion = (right - left) / 3;
         int middle1 = left + partion;
         int middle2 = middle1 + partion;
-        if(right < left)
+        if (right < left)
             return -1;
         if (x == a[middle1])
             return middle1;
@@ -39,9 +39,31 @@ public class Search {
             return ternarySearch(a, x, middle2 + 1, right);
     }
 
+    public static int jumpSearch(int[] a, int x) {
+        int step = (int) Math.sqrt(a.length);
+        int pos = 0;
+        int prev = 0;
+        while (pos < a.length && x > a[pos]) {
+            prev = pos;
+            pos += step;
+        }
+
+        if(pos > a.length - 1)
+            return -1;
+
+        for (int i = prev; i <= pos; i++) {
+            if(a[i] == x) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
     public static void main(String[] args) {
-        int[] a = {1, 3, 4, 5, 6};
-        int r = ternarySearch(a, 7, 0, a.length - 1);
+        int[] a = {0, 1, 1, 2, 3, 5, 8, 13, 21,
+                34, 55, 89, 144, 233, 377, 610} ;
+//        int r = ternarySearch(a, 7, 0, a.length - 1);
+        int r = jumpSearch(a, 0);
         System.out.println(r);
     }
 }
