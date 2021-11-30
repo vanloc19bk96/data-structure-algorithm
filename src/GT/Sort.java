@@ -1,6 +1,6 @@
 package GT;
 
-public class SortAlgorithm {
+public class Sort {
     public static void bubbleSort(int[] a) {
         int n = a.length;
         boolean isSorted = true;
