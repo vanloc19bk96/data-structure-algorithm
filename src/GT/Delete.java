@@ -6,7 +6,7 @@ public class Delete {
 
         int count = 0;
         for (int i = 0; i < a.length; i++) {
-            if(i == index)
+            if (i == index)
                 continue;
             newArray[count] = a[i];
             count++;
