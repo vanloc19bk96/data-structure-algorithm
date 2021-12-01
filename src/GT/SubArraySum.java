@@ -10,16 +10,12 @@ public class SubArraySum {
         for (int i = 0; i < a.length; i++) {
             int sum = a[i];
             if (sum == k) {
-                System.out.println(a[i]);
                 cnt++;
             }
-            String result = "" + a[i];
             for (int j = i + 1; j < a.length; j++) {
                 sum += a[j];
-                result = result + " " + String.valueOf(a[j]);
                 if (sum == k) {
                     cnt++;
-                    System.out.println(result);
                 }
             }
         }
